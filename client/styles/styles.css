@@ -21,6 +21,12 @@ body {
   max-height: 100%;
 }
 
+.yelp_logo {
+  display: block;
+  padding-top: 10px;
+  margin: auto;
+}
+
 .submit_button {
   display: block;
   margin: auto;
@@ -34,8 +40,8 @@ body {
 }
 
 .entry {
-  display: block;
   border: 1px blue solid;
+  display: block;
 }
 
 .entry .business_name {
