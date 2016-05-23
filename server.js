@@ -2,7 +2,7 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var express = require('express');
 var path = require('path');
-var yelp = require('yelp');
+var Yelp = require('./client/app/yelpsearchAPI.js');
 
 var app = express();
 
@@ -15,12 +15,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 //Post request that links to yelpsearchAPI functions
-app.post('/yelpSearch', function(req, res) {
-  yelp.searchYelp(req.body[0], res);
+app.post('/', function(req, res) {
+  console.log('IN SERVER.JS REQUEST:', req);
+  Yelp.searchYelp(req.body[0], res).then(function(result) {
+    console.log(result);
+  });
+  console.log('IN SERVER.JS RESPONSE:', res);
 });
 
 app.listen(port, function() {
   console.log('Listening on port:', port);
 });
+
 
 module.exports = app;
