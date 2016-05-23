@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Munchie Time
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Mass market users will be able to quickly decide on where to eat.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Web and mobile application that uses Yelp search results to filter popular restaurants near a certain area.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Many people spend a lot of time deciding where to eat on any given meal.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  >  Munchie Time does most of the heavy lifting for the end user, showing popular results around their area when given a location, meal, and price range.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > There are many tough decisions to make in life - food shouldn't be one of them.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I never have to waste precious time deciding where to eat - now I just go where my app suggests me to go!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Check out our product demo!
