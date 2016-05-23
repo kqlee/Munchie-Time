@@ -1,0 +1,23 @@
+{
+  "name": "Munchie Time",
+  "description": "MVP App",
+  "main": "server.js",
+  "authors": [
+    "Kent <kentqlee@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/lib"
+  ],
+    "dependencies": {
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16"
+  }
+}

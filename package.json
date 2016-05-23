@@ -1,0 +1,21 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongod": "^1.3.0",
+    "mongoose": "^4.4.19",
+    "oauth-signature": "^1.3.1",
+    "request": "^2.72.0",
+    "router": "^1.1.4",
+    "yelp": "^1.0.1"
+  }
+}
