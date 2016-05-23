@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="yelpApp">
+<head>
+  <title>Munchie Time</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+
+<div class="container-fluid banner_logo">
+<h1>MUNCHIE TIME</h1>
+</div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3 search_box">
+        <div ng-controller="searchController">
+          <h2>{{searchtest}}</h2>
+          <ul>
+            <li>Pick Neighborhood</li>
+            <li>Choose Food</li>
+            <li>Select Price Range</li>
+          </ul>
+          <div ng-controller="resultsController">
+          <button class="btn btn-primary" ng-click="addData()">SUBMIT</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 results_box" ng-controller="resultsController">
+          <h2>{{results}}</h2>
+        <div class="row">
+          <ul>
+            <li class="entry" ng-repeat="entry in data">
+              <img ng-src="{{entry.image_url}}">
+              <span>{{entry.name}}</span>
+              <div>Reviews: {{entry.review_count}}</div>
+              <span>{{entry.snippet_text}}</span>
+            </li>
+          </ul>
+        </div> <!-- Close Row -->
+      </div>
+    
+
+    </div>
+  </div>
+
+
+  <script src="app/controller.js"></script>
+  <script src="app/examplesearchdata.js"></script>
+  <script src="app/app.js"></script>
+</body>
+</html>

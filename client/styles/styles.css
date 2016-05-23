@@ -1,0 +1,29 @@
+.banner_logo {
+  background-color: #d9534f;
+  min-height: 75px;
+}
+
+.banner_logo h1 {
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: transparent;
+}
+
+.search_box {
+  background-color: #fff; 
+  border: 1px black solid;
+  margin-top: 20px;
+  min-height: 500px;
+  max-height: 100%;
+}
+
+.results_box {
+  border: 1px red solid;
+  margin-top: 20px;
+  min-height: 500px;
+  max-height: 500px;
+}
