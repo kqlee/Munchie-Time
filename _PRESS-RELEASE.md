@@ -35,7 +35,7 @@ Once the project moves into development, the press release can be used as a touc
   > There are many tough decisions to make in life - food shouldn't be one of them.
 
 ## How to Get Started ##
-  > Simply download our up, and you'll be up and running in no time!
+  > Simply go to our app, and you'll be up and running in no time!
 
 ## Customer Quote ##
   > "I never have to waste precious time deciding where to eat - now I just go where my app suggests me to go!"
