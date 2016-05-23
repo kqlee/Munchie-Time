@@ -19,29 +19,28 @@
 
       <div class="col-md-3 search_box">
         <div ng-controller="searchController">
-          <h2>{{searchtest}}</h2>
+          <h3>{{searchBox}}</h3>
           <ul>
             <li>Pick Neighborhood</li>
             <li>Choose Food</li>
             <li>Select Price Range</li>
           </ul>
           <div ng-controller="resultsController">
-          <button class="btn btn-primary" ng-click="addData()">SUBMIT</button>
+          <button class="btn btn-primary submit_button" ng-click="addData()">SUBMIT</button>
           </div>
         </div>
       </div>
 
       <div class="col-md-9 results_box" ng-controller="resultsController">
-          <h2>{{results}}</h2>
+        <h3>{{results}}</h3>
         <div class="row">
-          <ul>
-            <li class="entry" ng-repeat="entry in data">
-              <img ng-src="{{entry.image_url}}">
-              <span>{{entry.name}}</span>
-              <div>Reviews: {{entry.review_count}}</div>
-              <span>{{entry.snippet_text}}</span>
-            </li>
-          </ul>
+          <div class="col-md-4 entry" ng-repeat="entry in data">
+            <h4 class="business_name">{{entry.name}}</h4>
+            <a href="{{entry.url}}"><img ng-src="{{entry.image_url}}"></a>
+            <div>Reviews: {{entry.review_count}}</div>
+            <span>What customers are saying:</span>
+            <div>{{entry.snippet_text}}</div>
+          </div>
         </div> <!-- Close Row -->
       </div>
     

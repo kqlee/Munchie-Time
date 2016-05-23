@@ -1,7 +1,7 @@
 angular.module('yelpApp', [])
 
 .controller('searchController', function ($scope, $http) {
-  $scope.searchtest = 'ANGULAR SEARCH BOX';
+  $scope.searchBox = 'Find Your Next Meal';
 
   $scope.data = {};
 
@@ -32,18 +32,12 @@ angular.module('yelpApp', [])
 })
 
 .controller('resultsController', function ($scope) {
-  $scope.results = 'ANGULAR RESULTS BOX';
+  $scope.results = 'Search Results:';
   $scope.data = window.examplesearchdata.businesses;
 
   $scope.addData = function() {
     window.examplesearchdata.businesses.forEach(function(business, index) {
       var storage = $scope.data;
-      // storage.name[index] = business.name;
-      // storage.reviews[index] = business.review_count;
-      // storage.url[index] = business.url;
-      // storage.snippet[index] = business.snippet_text;
-      // storage.address = business.location.display_address;
-      // storage.images[index] = business.image_url;
       storage.push(business);
 
     });  
