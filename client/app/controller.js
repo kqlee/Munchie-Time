@@ -3,11 +3,18 @@ angular.module('yelpApp', [])
 .controller('searchController', function ($scope, searchFactory) {
 
   $scope.searchBox = 'Find Your Next Meal';
+  $scope.currResults = 'Recommendations:';
 
-  $scope.setParameters = searchFactory.setParameters;
-  
-  $scope.results = $scope.setParameters;
+  $scope.results = [];
 
+  $scope.setResults = function(neighborhood, mealSelection, priceSelection) {
+    searchFactory.setParameters(neighborhood, mealSelection, priceSelection)
+    .then(function(receivedData) {
+      $scope.results = receivedData;
+    }).then(function() {
+      console.log('FINAL CONSOLE LOG OF RESULTS:', $scope.results);
+    });
+  };
 
   $scope.neighborhoods = [
     'Ashbury Heights',
@@ -55,15 +62,14 @@ angular.module('yelpApp', [])
 })
 
 .controller('resultsController', function ($scope, searchFactory) {
+  
   angular.extend($scope, searchFactory);
-  $scope.currResults = 'Recommendations:';
-
+  
 })
 
 //Factory to hold all share methods across controllers
 .factory('searchFactory', function($http) {
 
-  var results = [];
 
   var defaultParams = {
     location: 'San Francisco',
@@ -77,14 +83,18 @@ angular.module('yelpApp', [])
     defaultParams.location = 'San Francisco ' + neighborhood;
     defaultParams.term = meal || defaultParams.term;
     // defaultParams.attr = priceRange;
-    console.log(neighborhood);
-    searchYelp();
+    var temp = [];
+    return searchYelp(function(info) {
+      temp = temp.concat(info);
+    }).then(function() {
+      return temp;
+    });
   };
 
-  var searchYelp = function() {
-    $http.post('/', defaultParams)
-    .then(function success(data) {
-      addData(data);
+  var searchYelp = function(callback) {
+    return $http.post('/', defaultParams)
+    .then(function success(data, err) {
+      return callback(addData(data));
     }, function error(err) {
       console.error('ERROR:', err);
     });
@@ -92,26 +102,23 @@ angular.module('yelpApp', [])
 
   var addData = function(searchQuery) {
     var query = searchQuery.data.businesses;
+    var results = [];
+    //Add random index generator here later
     query.forEach(function(business, index) {
       if (results.length > 2) {
         results = [];
       }
       results.push(business);
     }); 
-    console.log('RESULTS ARR', results);
     return results;
   }; 
 
-  var showSelectedValue = function(val) {
-    console.log(val);
-  };
 
   //Return an object with shared methods
   return {
-    results: results,
+    // temp: temp,
     setParameters: setParameters,
     searchYelp: searchYelp,
-    addData: addData,
-    showSelectedValue: showSelectedValue
+    addData: addData
   };
 });
