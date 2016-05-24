@@ -5,14 +5,12 @@ angular.module('yelpApp', [])
   $scope.searchBox = 'Find Your Next Meal';
   $scope.currResults = 'Recommendations:';
 
-  $scope.results = [];
+  $scope.finalSearchResults = [];
 
   $scope.setResults = function(neighborhood, mealSelection, priceSelection) {
     searchFactory.setParameters(neighborhood, mealSelection, priceSelection)
     .then(function(receivedData) {
-      $scope.results = receivedData;
-    }).then(function() {
-      console.log('FINAL CONSOLE LOG OF RESULTS:', $scope.results);
+      $scope.finalSearchResults = receivedData;
     });
   };
 
@@ -61,20 +59,13 @@ angular.module('yelpApp', [])
 
 })
 
-.controller('resultsController', function ($scope, searchFactory) {
-  
-  angular.extend($scope, searchFactory);
-  
-})
-
 //Factory to hold all share methods across controllers
 .factory('searchFactory', function($http) {
-
 
   var defaultParams = {
     location: 'San Francisco',
     term: 'food',
-    limit: 3,
+    limit: 20,
     sort: 0,
     radius_filter: 3200 //2-mile radius
   };
@@ -105,7 +96,7 @@ angular.module('yelpApp', [])
     var results = [];
     //Add random index generator here later
     query.forEach(function(business, index) {
-      if (results.length > 2) {
+      if (results.length >= 3) {
         results = [];
       }
       results.push(business);
@@ -113,10 +104,8 @@ angular.module('yelpApp', [])
     return results;
   }; 
 
-
   //Return an object with shared methods
   return {
-    // temp: temp,
     setParameters: setParameters,
     searchYelp: searchYelp,
     addData: addData
