@@ -94,13 +94,17 @@ angular.module('yelpApp', [])
   var addData = function(searchQuery) {
     var query = searchQuery.data.businesses;
     var results = [];
-    //Add random index generator here later
-    query.forEach(function(business, index) {
-      if (results.length >= 3) {
-        results = [];
+
+    var randomBusiness = function(businesses) {
+      for (var i = 0; i < 3; i++) {
+        var randomIndex = Math.floor(Math.random() * businesses.length);
+        results.push(businesses[randomIndex]);
+        businesses.splice(randomIndex, 1);
       }
-      results.push(business);
-    }); 
+    };
+
+    randomBusiness(query);
+
     return results;
   }; 
 

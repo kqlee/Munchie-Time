@@ -14,48 +14,49 @@
 <h1>MUNCHIE TIME</h1>
 </div>
 
-  <div class="container">
+  <div class="container" ng-controller="searchController">
     <div class="row">
 
       <div class="col-md-3 search_box">
-        <div ng-controller="searchController">
+        <div> <!--Controller Here-->
           <img class="yelp_logo" src="assets/yelp_powered_btn_red.png">
           <h3>{{searchBox}}</h3>
 
-          <div>
+          <div class="selection">
+            <p>Select Neighborhood:</p>
             <select class="neighborhood_select" ng-model="neighborhoodSelection">
-              <option value="Select_Neighborhood" disabled="disabled">Select Neighborhood:</option>
               <option value={{neighborhood}} ng-repeat="neighborhood in neighborhoods">{{neighborhood}}</option>
             </select>
           </div>
 
-          <div>
+          <div class="selection">
+            <p>Select Meal:</p>
             <select class="meal_select" ng-model="mealSelection">
-              <option>Select Meal:</option>
               <option value={{food}} ng-repeat="food in meals">{{food}}</option>
             </select>
           </div>
 
-          <div>
+          <div class="selection">
+          <p>Price Range:</p>
             <select class="price_select" ng-model="priceSelection">
               <option>Price Range:</option>
               <option value={{price}} ng-repeat="price in prices">{{price}}</option>
             </select>
           </div>
 
-          <div ng-controller="resultsController">
-            <button class="btn btn-primary submit_button" ng-click="setParameters(neighborhoodSelection, mealSelection, priceSelection)">
+          <div><!--Controller Here-->
+            <button class="btn btn-primary submit_button" ng-click="setResults(neighborhoodSelection, mealSelection, priceSelection)">
               SUBMIT
             </button>
           </div>
         </div>
       </div>
 
-      <div class="col-md-9 results_box" ng-controller="resultsController">
-        <h3>{{currResults}}</h3>
+      <div class="col-md-9 results_box">
+        <h2>{{currResults}}</h2>
         <div class="row">
-          <div class="col-md-4 entry" ng-repeat="entry in results track by $index">
-            <h4 class="business_name">{{entry.name}}</h4>
+          <div class="col-md-4 entry" ng-repeat="entry in finalSearchResults">
+            <p class="business_name">{{entry.name}}</p>
             <a ng-href="{{entry.url}}"><img ng-src="{{entry.image_url}}"></a>
             <div class="reviews_count">Reviews: {{entry.review_count}}</div>
             <span>What customers are saying:</span>
@@ -66,7 +67,7 @@
     
 
     </div>
-  </div>
+  </div> <!--Close Main Container-->
 
 
   <script src="app/controller.js"></script>
