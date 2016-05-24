@@ -22,13 +22,31 @@
           <img class="yelp_logo" src="assets/yelp_powered_btn_red.png">
           <h3>{{searchBox}}</h3>
 
-          <ul>
-            <li>Pick Neighborhood</li>
-            <li>Choose Food</li>
-            <li>Select Price Range</li>
-          </ul>
+          <div>
+            <select class="neighborhood_select" ng-model="neighborhoodSelection">
+              <option value="Select_Neighborhood" disabled="disabled">Select Neighborhood:</option>
+              <option value={{neighborhood}} ng-repeat="neighborhood in neighborhoods">{{neighborhood}}</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="meal_select" ng-model="mealSelection">
+              <option>Select Meal:</option>
+              <option value={{food}} ng-repeat="food in meals">{{food}}</option>
+            </select>
+          </div>
+
+          <div>
+            <select class="price_select" ng-model="priceSelection">
+              <option>Price Range:</option>
+              <option value={{price}} ng-repeat="price in prices">{{price}}</option>
+            </select>
+          </div>
+
           <div ng-controller="resultsController">
-          <button class="btn btn-primary submit_button" ng-click="searchYelp()">SUBMIT</button>
+            <button class="btn btn-primary submit_button" ng-click="setParameters(neighborhoodSelection, mealSelection, priceSelection)">
+              SUBMIT
+            </button>
           </div>
         </div>
       </div>
