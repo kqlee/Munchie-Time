@@ -4,22 +4,8 @@ angular.module('yelpApp', [])
   angular.extend($scope, searchFactory);
   $scope.searchBox = 'Find Your Next Meal';
 
-})
-
-.controller('resultsController', function ($scope, searchFactory) {
-  angular.extend($scope, searchFactory);
-  $scope.currResults = 'Search Results:';
-
-})
-
-//Factory to hold all share methods across controllers
-.factory('searchFactory', function($http) {
-
-  var results = [];
-
-  var neighborhoods = [
+  $scope.neighborhoods = [
     'Ashbury Heights',
-    'Balboa Terrace',
     'Bayview-Hunters Point',
     'Bernal Heights',
     'Castro',
@@ -50,16 +36,43 @@ angular.module('yelpApp', [])
     'Western Addition'
   ];
 
-  var setParameters = function(neighborhood, meal, priceRange) {
+  $scope.meals = [
+    'Breakfast',
+    'Brunch',
+    'Lunch',
+    'Coffee',
+    'Dinner',
+    'Dessert'
+  ];
 
-  };
+  $scope.prices = ['$', '$$', '$$$', '$$$$'];
+
+})
+
+.controller('resultsController', function ($scope, searchFactory) {
+  angular.extend($scope, searchFactory);
+  $scope.currResults = 'Recommendations:';
+
+})
+
+//Factory to hold all share methods across controllers
+.factory('searchFactory', function($http) {
+
+  var results = [];
 
   var defaultParams = {
     location: 'San Francisco',
-    term: 'brunch', //change to different meals later
+    term: 'food',
     limit: 3,
     sort: 0,
-    radius_filter: 8000 //5-mile radius
+    radius_filter: 3200 //2-mile radius
+  };
+
+  var setParameters = function(neighborhood, meal, priceRange) {
+    defaultParams.location = 'San Francisco ' + neighborhood;
+    defaultParams.term = meal || defaultParams.term;
+    // defaultParams.attr = priceRange;
+    searchYelp();
   };
 
   var searchYelp = function() {
@@ -81,11 +94,16 @@ angular.module('yelpApp', [])
     }); 
   }; 
 
+  var showSelectedValue = function(val) {
+    console.log(val);
+  };
+
   //Return an object with shared methods
   return {
     results: results,
     setParameters: setParameters,
     searchYelp: searchYelp,
-    addData: addData
+    addData: addData,
+    showSelectedValue: showSelectedValue
   };
 });
