@@ -106,7 +106,7 @@ select:hover {
 
 /* Keyframes */
 
-.entry p {
+.entry {
 
     -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 4s; /* Firefox < 16 */
