@@ -18,7 +18,7 @@
     <div class="row">
 
       <div class="col-md-3 search_box">
-        <div> <!--Controller Here-->
+        <div>
           <img class="yelp_logo" src="assets/yelp_powered_btn_red.png">
           <h3>{{searchBox}}</h3>
 
@@ -36,15 +36,7 @@
             </select>
           </div>
 
-          <div class="selection">
-          <p>Price Range:</p>
-            <select class="price_select" ng-model="priceSelection">
-              <option>Price Range:</option>
-              <option value={{price}} ng-repeat="price in prices">{{price}}</option>
-            </select>
-          </div>
-
-          <div><!--Controller Here-->
+          <div>
             <button class="btn btn-primary submit_button" ng-click="setResults(neighborhoodSelection, mealSelection, priceSelection)">
               SUBMIT
             </button>
@@ -55,20 +47,20 @@
       <div class="col-md-9 results_box">
         <h2>{{currResults}}</h2>
         <div class="row">
-          <div class="col-md-4 entry" ng-repeat="entry in finalSearchResults">
-            <p class="business_name">{{entry.name}}</p>
-            <a ng-href="{{entry.url}}"><img ng-src="{{entry.image_url}}"></a>
-            <div class="reviews_count">Reviews: {{entry.review_count}}</div>
-            <span>What customers are saying:</span>
-            <div>{{entry.snippet_text}}</div>
+          <div class="entry">
+            <div class="col-md-4 entry" ng-repeat="entry in finalSearchResults">
+              <p class="business_name">{{entry.name}}</p>
+              <a ng-href="{{entry.url}}"><img ng-src="{{entry.image_url}}"></a>
+              <p class="entry_item">Reviews: {{entry.review_count}}</p>
+              <h4 class="entry_item"><strong><em>What customers are saying:</em></strong></h4>
+              <p class="entry_item">{{entry.snippet_text}}</p>
+            </div>
           </div>
         </div> <!-- Close Row -->
       </div>
-    
 
     </div>
   </div> <!--Close Main Container-->
-
 
   <script src="app/controller.js"></script>
   <script src="app/examplesearchdata.js"></script>

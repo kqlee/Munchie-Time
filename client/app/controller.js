@@ -5,7 +5,7 @@ angular.module('yelpApp', [])
   $scope.searchBox = 'Find Your Next Meal';
   $scope.currResults = 'Recommendations:';
 
-  $scope.finalSearchResults = [];
+  $scope.finalSearchResults = /*window.examplesearchdata.businesses;*/ [];
 
   $scope.setResults = function(neighborhood, mealSelection, priceSelection) {
     searchFactory.setParameters(neighborhood, mealSelection, priceSelection)
@@ -54,8 +54,6 @@ angular.module('yelpApp', [])
     'Dinner',
     'Dessert'
   ];
-
-  $scope.prices = ['$', '$$', '$$$', '$$$$'];
 
 })
 

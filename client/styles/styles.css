@@ -2,6 +2,8 @@
 
 body {
   background-color: transparent;
+  font-family: 'Rubik', sans-serif;
+  color: #434A4A;
 }
 
 /* Header Styling */
@@ -12,7 +14,6 @@ body {
 }
 
 .banner_logo h1 {
-  font-family: 'Rubik', sans-serif;
   color: white;
   text-align: center;
 }
@@ -31,56 +32,115 @@ body {
 .yelp_logo {
   display: block;
   padding-top: 10px;
-  margin: auto;
+  margin: 40px auto 40px auto;
 }
 
 .neighborhood_select {
   background-color: transparent;
-  margin-top: 30px;
+  margin-bottom: 35px;
   height: 30px;
 }
 
 .meal_select {
   background-color: transparent;
-  margin-top: 50px;
+  margin-bottom: 35px;
   height: 30px;
 }
 
 .price_select {
   background-color: transparent;
+  margin-bottom: 35px;
   height: 30px;
-  margin-top: 50px;
 }
 
 .submit_button {
   display: block;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.selection {
+  padding-top: 15px;
+}
+
+select:hover {
+  background-color: #C5DCE8;
 }
 
 /* Search Results Box */
 
 .results_box {
-  /*border: 1px red solid;*/
   margin-top: 20px;
   min-height: 550px;
   max-height: 550px;
 }
 
 .entry {
-  /*border: 1px blue solid;*/
   display: block;
+  border-radius: 20px;
 }
 
-.entry .business_name {
+.business_name {
   text-align: center;
+  font-size: 20px;
 }
 
 .entry img {
   display: block;
   margin: auto;
-  min-height: 200px;
-  min-width: 200px;
+  min-height: 225px;
+  min-width: 225px;
+}
+
+.entry_item {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.entry:hover {
+  background-color: #D0F7E3;
+}
+
+
+/* Keyframes */
+
+.entry p {
+
+    -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+         -o-animation: fadein 4s; /* Opera < 12.1 */
+            animation: fadein 4s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 3; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 3; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 3; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 3; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 3; }
 }
 
