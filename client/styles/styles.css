@@ -20,8 +20,9 @@ body {
 /* Search Box Styling */
 
 .search_box {
-  background-color: #fff; 
-  border: 1px black solid;
+  background-color: #d9edf7;
+  border-color: #5bc0de; 
+  border-radius: 20px;
   margin-top: 20px;
   min-height: 550px;
   max-height: 100%;
@@ -33,22 +34,42 @@ body {
   margin: auto;
 }
 
+.neighborhood_select {
+  background-color: transparent;
+  margin-top: 30px;
+  height: 30px;
+}
+
+.meal_select {
+  background-color: transparent;
+  margin-top: 50px;
+  height: 30px;
+}
+
+.price_select {
+  background-color: transparent;
+  height: 30px;
+  margin-top: 50px;
+}
+
 .submit_button {
   display: block;
-  margin: auto;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Search Results Box */
 
 .results_box {
-  border: 1px red solid;
+  /*border: 1px red solid;*/
   margin-top: 20px;
   min-height: 550px;
   max-height: 550px;
 }
 
 .entry {
-  border: 1px blue solid;
+  /*border: 1px blue solid;*/
   display: block;
 }
 
