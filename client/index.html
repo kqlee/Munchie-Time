@@ -39,7 +39,7 @@
           <div class="col-md-4 entry" ng-repeat="entry in results track by $index">
             <h4 class="business_name">{{entry.name}}</h4>
             <a ng-href="{{entry.url}}"><img ng-src="{{entry.image_url}}"></a>
-            <div>Reviews: {{entry.review_count}}</div>
+            <div class="reviews_count">Reviews: {{entry.review_count}}</div>
             <span>What customers are saying:</span>
             <div>{{entry.snippet_text}}</div>
           </div>
