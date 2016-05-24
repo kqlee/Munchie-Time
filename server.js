@@ -16,11 +16,7 @@ app.use(bodyParser.json());
 
 //Post request that links to yelpsearchAPI functions
 app.post('/', function(req, res) {
-  console.log('IN SERVER.JS REQUEST:', req);
-  Yelp.searchYelp(req.body[0], res).then(function(result) {
-    console.log(result);
-  });
-  console.log('IN SERVER.JS RESPONSE:', res);
+  Yelp.searchYelp(req.body, res);
 });
 
 app.listen(port, function() {
