@@ -1,3 +1,11 @@
+/* Main HTML Elements Styling */
+
+body {
+  background-color: transparent;
+}
+
+/* Header Styling */
+
 .banner_logo {
   background-color: #d9534f;
   min-height: 75px;
@@ -9,9 +17,7 @@
   text-align: center;
 }
 
-body {
-  background-color: transparent;
-}
+/* Search Box Styling */
 
 .search_box {
   background-color: #fff; 
@@ -31,6 +37,8 @@ body {
   display: block;
   margin: auto;
 }
+
+/* Search Results Box */
 
 .results_box {
   border: 1px red solid;
@@ -54,3 +62,4 @@ body {
   min-height: 200px;
   min-width: 200px;
 }
+
