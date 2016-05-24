@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="yelpApp">
 <head>
-  <title>Munchie Time</title>
+  <title>MUNCHIE TIME</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
   <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -18,31 +17,31 @@
     <div class="row">
 
       <div class="col-md-3 search_box">
-        <div>
-          <img class="yelp_logo" src="assets/yelp_powered_btn_red.png">
-          <h3>{{searchBox}}</h3>
+        
+        <img class="yelp_logo" src="assets/yelp_powered_btn_red.png">
+        <h3>{{searchBox}}</h3>
 
-          <div class="selection">
-            <p>Select Neighborhood:</p>
-            <select class="neighborhood_select" ng-model="neighborhoodSelection">
-              <option value={{neighborhood}} ng-repeat="neighborhood in neighborhoods">{{neighborhood}}</option>
-            </select>
-          </div>
-
-          <div class="selection">
-            <p>Select Meal:</p>
-            <select class="meal_select" ng-model="mealSelection">
-              <option value={{food}} ng-repeat="food in meals">{{food}}</option>
-            </select>
-          </div>
-
-          <div>
-            <button class="btn btn-primary submit_button" ng-click="setResults(neighborhoodSelection, mealSelection, priceSelection)">
-              SUBMIT
-            </button>
-          </div>
+        <div class="selection">
+          <p>Select Neighborhood:</p>
+          <select class="neighborhood_select" ng-model="neighborhoodSelection">
+            <option value={{neighborhood}} ng-repeat="neighborhood in neighborhoods">{{neighborhood}}</option>
+          </select>
         </div>
-      </div>
+
+        <div class="selection">
+          <p>Select Meal:</p>
+          <select class="meal_select" ng-model="mealSelection">
+            <option value={{food}} ng-repeat="food in meals">{{food}}</option>
+          </select>
+        </div>
+
+        <div>
+          <button class="btn btn-primary submit_button" ng-click="setResults(neighborhoodSelection, mealSelection, priceSelection)">
+            SUBMIT
+          </button>
+        </div>
+        
+      </div> <!--Close Search Box-->
 
       <div class="col-md-9 results_box">
         <h2>{{currResults}}</h2>
@@ -57,9 +56,9 @@
             </div>
           </div>
         </div> <!-- Close Row -->
-      </div>
+      </div> <!--Close Results Box-->
 
-    </div>
+    </div> <!--Close Primary Row in App-->
   </div> <!--Close Main Container-->
 
   <script src="app/controller.js"></script>
