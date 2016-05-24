@@ -1,8 +1,13 @@
 angular.module('yelpApp', [])
 
 .controller('searchController', function ($scope, searchFactory) {
-  angular.extend($scope, searchFactory);
+
   $scope.searchBox = 'Find Your Next Meal';
+
+  $scope.setParameters = searchFactory.setParameters;
+  
+  $scope.results = $scope.setParameters;
+
 
   $scope.neighborhoods = [
     'Ashbury Heights',
@@ -72,6 +77,7 @@ angular.module('yelpApp', [])
     defaultParams.location = 'San Francisco ' + neighborhood;
     defaultParams.term = meal || defaultParams.term;
     // defaultParams.attr = priceRange;
+    console.log(neighborhood);
     searchYelp();
   };
 
@@ -92,6 +98,8 @@ angular.module('yelpApp', [])
       }
       results.push(business);
     }); 
+    console.log('RESULTS ARR', results);
+    return results;
   }; 
 
   var showSelectedValue = function(val) {
