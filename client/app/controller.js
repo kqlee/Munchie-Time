@@ -16,12 +16,47 @@ angular.module('yelpApp', [])
 .factory('searchFactory', function($http) {
 
   var results = [];
-  var yelpUrl = 'https://api.yelp.com/v2/search';
-  var yelpKey = window.consumer_key;
+
+  var neighborhoods = [
+    'Ashbury Heights',
+    'Balboa Terrace',
+    'Bayview-Hunters Point',
+    'Bernal Heights',
+    'Castro',
+    'Chinatown',
+    'Civic Center',
+    'Dogpatch',
+    'Embarcadero',
+    'Excelsior',
+    'Fillmore',
+    'Financial District',
+    'Fisherman\'s Wharf',
+    'Hayes Valley',
+    'Inner Richmond',
+    'Inner Sunset',
+    'Japantown',
+    'Mission',
+    'Nob Hill',
+    'Noe Valley',
+    'North Beach/Telegraph Hill',
+    'Outer Mission',
+    'Outer Richmond',
+    'Outer Sunset',
+    'Pacific Heights',
+    'Parkside',
+    'Russian Hill',
+    'SoMa',
+    'Tenderloin',
+    'Western Addition'
+  ];
+
+  var setParameters = function(neighborhood, meal, priceRange) {
+
+  };
 
   var defaultParams = {
     location: 'San Francisco',
-    term: 'Food', //change to different meals later
+    term: 'brunch', //change to different meals later
     limit: 3,
     sort: 0,
     radius_filter: 8000 //5-mile radius
@@ -30,19 +65,18 @@ angular.module('yelpApp', [])
   var searchYelp = function() {
     $http.post('/', defaultParams)
     .then(function success(data) {
-      console.log('DATA:', data);
       addData(data);
-      return data;
     }, function error(err) {
       console.error('ERROR:', err);
     });
   };
 
   var addData = function(searchQuery) {
-    console.log(query);
-    var query = searchQuery; //|| window.examplesearchdata.businesses;
-    //Change this array to API data later
+    var query = searchQuery.data.businesses;
     query.forEach(function(business, index) {
+      if (results.length > 2) {
+        results = [];
+      }
       results.push(business);
     }); 
   }; 
@@ -50,6 +84,7 @@ angular.module('yelpApp', [])
   //Return an object with shared methods
   return {
     results: results,
+    setParameters: setParameters,
     searchYelp: searchYelp,
     addData: addData
   };
